@@ -1316,3 +1316,42 @@ button { cursor: pointer; border: none; background: none; }
   z-index: 2;
   white-space: nowrap;
 }
+#back-to-top {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  box-shadow: 0 6px 24px rgba(201,168,76,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transform: translateY(20px) rotate(0deg);
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+  z-index: 999;
+  pointer-events: none;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+  pointer-events: all;
+}
+
+#back-to-top:hover {
+  box-shadow: 0 10px 36px rgba(201,168,76,0.7);
+  transform: translateY(-4px) rotate(20deg);
+}
+
+#back-to-top img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 50%;
+}

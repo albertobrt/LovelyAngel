@@ -377,19 +377,33 @@
 
     // Simulation d'envoi (remplacez par votre endpoint réel)
     const btn = form.querySelector('.btn-submit');
-    btn.disabled = true;
-    btn.querySelector('span:first-child').textContent = 'Envoi en cours…';
+btn.disabled = true;
+btn.querySelector('span:first-child').textContent = 'Envoi en cours…';
 
-    setTimeout(() => {
-      success.classList.remove('hidden');
-      form.reset();
-      btn.disabled = false;
-      btn.querySelector('span:first-child').textContent = 'Envoyer ma demande';
-      success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+const data = new FormData(form);
 
-      // Cache le message après 8s
-      setTimeout(() => success.classList.add('hidden'), 8000);
-    }, 1200);
+fetch('https://formspree.io/f/xdapadvp', {  // ← colle TON lien ici
+  method: 'POST',
+  body: data,
+  headers: { 'Accept': 'application/json' }
+})
+.then(res => {
+  if (res.ok) {
+    success.classList.remove('hidden');
+    form.reset();
+    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(() => success.classList.add('hidden'), 8000);
+  } else {
+    alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+  }
+})
+.catch(() => {
+  alert('Problème de connexion. Veuillez réessayer.');
+})
+.finally(() => {
+  btn.disabled = false;
+  btn.querySelector('span:first-child').textContent = 'Envoyer ma demande';
+});
   });
 
   // Supprime les erreurs à la saisie

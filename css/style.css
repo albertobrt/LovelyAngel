@@ -1355,3 +1355,6 @@ button { cursor: pointer; border: none; background: none; }
   object-fit: contain;
   border-radius: 50%;
 }
+.location-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}

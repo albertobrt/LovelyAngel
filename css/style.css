@@ -1218,17 +1218,35 @@ button { cursor: pointer; border: none; background: none; }
 .nav-links.open {
   display: flex !important;
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(253,250,244,0.98);
-  z-index: 999;
-  gap: 2.5rem;
+  background: rgba(253,250,244,0.99);
+  z-index: 998;
+  gap: 2rem;
+  overflow-y: auto;
+  padding: 6rem 2rem 3rem;
 }
+
 .nav-links.open a {
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
   letter-spacing: 0.2em;
+  color: var(--text-main);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  width: 100%;
+  text-align: center;
+}
+
+.nav-links.open .nav-cta {
+  border: 1.5px solid var(--gold) !important;
+  border-radius: 30px !important;
+  padding: 0.7rem 2rem !important;
+  margin-top: 0.5rem;
 }
 
 /* ════════════════════════════════════

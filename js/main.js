@@ -162,6 +162,7 @@
     navLinks.classList.toggle('open');
     const isOpen = navLinks.classList.contains('open');
     hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.style.zIndex = isOpen ? '1000' : '';
     // Transforme les barres en X
     const spans = hamburger.querySelectorAll('span');
     if (isOpen) {
